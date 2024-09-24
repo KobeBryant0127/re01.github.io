@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex 布局</title>
+    <meta name="description" content="Re01 编程课的Flex布局演示。" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      body {
+        margin: 0;
+        /* vh 是view height 既视窗高度的意思，100就是100%占满窗口高度 */
+        height: 100vh;
+        background-color: #eee;
+      }
+      /* * {
+        border: 1px solid #333;
+      } */
+      .flex {
+        display: flex;
+      }
+      /* 占满比例 */
+      .flex1 {
+        flex: 1;
+      }
+      /* 竖向 */
+      .column {
+        flex-direction: column;
+      }
+      /* 阴影 */
+      .yinYing {
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+      /* 白色背景 */
+      .baiSe {
+        background-color: #fff;
+      }
+      /* 上下左右外边距 */
+      .mg8 {
+        margin: 8px;
+      }
+      /* 右外边距 */
+      .mgr8 {
+        margin-right: 8px;
+      }
+      /* 上外边距 */
+      .mgt8 {
+        margin-top: 8px;
+      }
+      /* 四个小盒子 */
+      .shuJu {
+        height: 300px;
+      }
+      /* 中间的大盒子 */
+      .lieBiaoXiang {
+        height: 160px;
+      }
+      /* 导航条 */
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(201, 201, 201);
+        font-size: 14px;
+        color: #666;
+      }
+      .neiRong::-webkit-scrollbar {
+        display: none; /* Chrome Safari */
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 侧边栏 -->
+    <div
+      style="width: 200px; z-index: 3"
+      class="ceBian flex column baiSe yinYing"
+    >
+      <!-- 侧边头像栏 -->
+      <div
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #999;
+        "
+        class="flex"
+      >
+        <img
+          alt="logo"
+          src="https://img.picui.cn/free/2024/09/24/66f2186db567f.jpg"
+          width="40px"
+          height="40px"
+        />
+        <div style="margin-left: 10px">四大名著学习网站</div>
+      </div>
+      <!-- 导航栏 -->
+      <div class="flex1">
+        <div class="daoHang">
+          <a href="#C1">西游记</a>
+        </div>
+        <div class="daoHang">
+          <a href="#C2">水浒传</a>
+        </div>
+        <div class="daoHang">
+          <a href="#C3">三国演义</a>
+        </div>
+        <div class="daoHang">
+          <a href="#C4">红楼梦</a>
+        </div>
+        <div class="daoHang">导航</div>
+      </div>
+    </div>
+    <!-- 主区域 -->
+    <div class="flex flex1 column">
+      <!-- 头部栏 -->
+      <div style="height: 60px; z-index: 2" class="baiSe yinYing"></div>
+      <!-- 内容区 -->
+      <div class="flex flex1 neiRong" style="overflow: auto">
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 数据区 -->
+          <div style="z-index: 1" class="flex shuJuQu">
+            <!-- 四个小块显示重点数据 -->
+            <div class="shuJu baiSe yinYing flex1 mgr8">
+              <img
+                src="https://img.picui.cn/free/2024/09/24/66f214b3aaeed.jpg"
+                alt="西游记.jpg"
+                title="西游记"
+                style="width: auto; height: 300px"
+              />
+            </div>
+            <div class="shuJu baiSe yinYing flex1 mgr8">
+              <img
+                src="https://img.picui.cn/free/2024/09/24/66f2156906043.jpg"
+                alt="水浒传.jpg"
+                title="水浒传"
+                style="width: auto; height: 300px"
+              />
+            </div>
+            <div class="shuJu baiSe yinYing flex1 mgr8">
+              <img
+                src="https://img.picui.cn/free/2024/09/24/66f2172cae00d.jpg"
+                alt="三国演义.jpg"
+                title="三国演义"
+                style="width: auto; height: 300px"
+              />
+            </div>
+            <div class="shuJu baiSe yinYing flex1">
+              <img
+                src="https://img.picui.cn/free/2024/09/24/66f216bfecc46.jpg"
+                alt="红楼梦.jpg"
+                title="红楼梦"
+                style="width: auto; height: 300px"
+              />
+            </div>
+          </div>
+          <!-- 列表区，列表数据可以无限增加 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div class="lieBiaoXiang mgt8 baiSe yinYing">
+              <h2><a id="C1">西游记</a></h2>
+              <a href="http://mz.guoxuelu.com/xiyouji.htm" target="_top"
+                >原著导读</a
+              >
+            </div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing">
+              <h2><a id="C2">水浒传</a></h2>
+              <a href="http://mz.guoxuelu.com/shuihuzhuan.htm" target="_top"
+                >原著导读</a
+              >
+            </div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing">
+              <h2><a id="C3">三国演义</a></h2>
+              <a href="http://mz.guoxuelu.com/sanguoyanyi.htm" target="_top"
+                >原著导读</a
+              >
+            </div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing">
+              <h2><a id="C4">红楼梦</a></h2>
+              <a href="http://mz.guoxuelu.com/hongloumeng.htm" target="_top"
+                >原著导读</a
+              >
+            </div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing"></div>
+          </div>
+        </div>
+        <!-- 右区 -->
+        <div style="flex: 1" class="youQu flex column mgr8 mgt8">
+          <!-- 提示区 -->
+          <div style="height: 150px" class="baiSe yinYing"></div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="mgt8 baiSe yinYing"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
